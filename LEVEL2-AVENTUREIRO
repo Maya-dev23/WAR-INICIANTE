@@ -1,4 +1,3 @@
-Excelente\! Este é um passo significativo para a simulação do jogo WAR. Abaixo está o código C completo que implementa a alocação dinâmica, a simulação de ataques com ponteiros, a atualização de dados e o gerenciamento de memória, atendendo a todos os requisitos funcionais e não funcionais.
 
 ```c
 #include <stdio.h>
@@ -282,4 +281,5 @@ int main() {
 
     return 0;
 }
+
 ```
