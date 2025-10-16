@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definição da struct Territorio
+// A struct agrupa dados relacionados a um território: nome, cor do exército e quantidade de tropas.
+typedef struct {
+    char nome[30];  // Nome do território (máximo 29 caracteres + '\0')
+    char cor[10];   // Cor do exército (máximo 9 caracteres + '\0')
+    int tropas;     // Quantidade de tropas no território
+} Territorio;
+
+// Constante para o número de territórios a serem cadastrados
+#define NUM_TERRITORIOS 5
+
+int main() {
+    // Declaração de um vetor de structs Territorio
+    // Este vetor pode armazenar informações de 5 territórios.
+    Territorio territorios[NUM_TERRITORIOS];
+    int i; // Variável de controle do laço
+
+    printf("===========================================\n");
+    printf("     SISTEMA DE CADASTRO DE TERRITÓRIOS    \n");
+    printf("===========================================\n\n");
+    
+    // ------------------------------------------------------------------------
+    // Entrada dos Dados: Laço para preencher os dados dos 5 territórios
+    // ------------------------------------------------------------------------
+    
+    printf("--- Cadastro de %d Territórios ---\n\n", NUM_TERRITORIOS);
+    
+    for (i = 0; i < NUM_TERRITORIOS; i++) {
+        printf("Território %d de %d:\n", i + 1, NUM_TERRITORIOS);
+        
+        // Entrada do Nome do Território
+        // Usamos scanf para strings curtas, seguindo a instrução e limitando
+        // a leitura para evitar estouro de buffer (30 - 1 = 29 caracteres + '\0').
+        printf("  Nome (max 29): ");
+        if (scanf("%29s", territorios[i].nome) != 1) {
+             fprintf(stderr, "Erro na leitura do nome.\n");
+             return 1; // Encerra o programa em caso de erro de leitura
+        }
+        
+        // Entrada da Cor do Exército
+        printf("  Cor do Exército (max 9): ");
+        if (scanf("%9s", territorios[i].cor) != 1) {
+             fprintf(stderr, "Erro na leitura da cor.\n");
+             return 1; // Encerra o programa
+        }
+        
+        // Entrada da Quantidade de Tropas
+        // Usa scanf para ler um inteiro.
+        printf("  Quantidade de Tropas: ");
+        if (scanf("%d", &territorios[i].tropas) != 1) {
+             fprintf(stderr, "Erro na leitura das tropas. Certifique-se de digitar um número inteiro.\n");
+             return 1; // Encerra o programa
+        }
+        
+        printf("\n"); // Linha em branco para melhor separação visual
+    }
+
+    // ------------------------------------------------------------------------
+    // Exibição dos Dados: Laço para percorrer e exibir as informações cadastradas
+    // ------------------------------------------------------------------------
+    
+    printf("===========================================\n");
+    printf("     DADOS DOS TERRITÓRIOS CADASTRADOS     \n");
+    printf("===========================================\n\n");
+    
+    for (i = 0; i < NUM_TERRITORIOS; i++) {
+        // Exibe o número do território
+        printf("Território %d:\n", i + 1);
+        
+        // Acessa e exibe os campos da struct do território atual (territorios[i])
+        printf("  Nome: %s\n", territorios[i].nome);
+        printf("  Cor do Exército: %s\n", territorios[i].cor);
+        printf("  Tropas: %d\n", territorios[i].tropas);
+        
+        printf("---\n"); // Separador para cada território
+    }
+    
+    printf("Exibição concluída com sucesso.\n");
+    
+    return 0; // Indica que o programa terminou com sucesso
+}
