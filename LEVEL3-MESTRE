@@ -1,6 +1,4 @@
-Absolutamente\! Este é o código final, unindo todas as funcionalidades anteriores (alocação dinâmica, ataques com ponteiros) com o novo sistema de **Missões Estratégicas**.
 
-O código inclui a lógica modularizada, o uso de ponteiros para manipulação de dados e o gerenciamento adequado de memória.
 
 ```c
 #include <stdio.h>
@@ -382,4 +380,5 @@ int main() {
 
     return 0;
 }
+
 ```
